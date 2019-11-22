@@ -1,0 +1,20 @@
+{
+    "extends": [
+        "react-app",
+        "prettier"
+    ],
+    "rules": {
+        "jsx-quotes": [
+            1,
+            "prefer-double"
+        ],
+        "no-console": "warn",
+        "react/default-props-match-prop-types": "off",
+        "react/forbid-prop-types": "off",
+        "react/no-find-dom-node": "off"
+    },
+    "plugins": [
+        "prettier",
+        "react"
+    ]
+}
