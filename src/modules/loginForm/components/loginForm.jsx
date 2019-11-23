@@ -4,17 +4,7 @@ import { Button, Block } from 'components'
 import { Link } from 'react-router-dom'
 
 const LoginForm = props => {
-	const { getFieldDecorator } = props.form
-
-	const handleSubmit = e => {
-		e.preventDefault()
-		props.form.validateFields((err, values) => {
-			if (!err) {
-				// console.log('Отправленные данные:  ', values)
-			}
-		})
-	}
-
+	const { values, touched, errors, handleChange, handleBlur, handleSubmit } = props
 	return (
 		<>
 			<div className="auth__top">
@@ -23,33 +13,35 @@ const LoginForm = props => {
 			</div>
 			<Block>
 				<Form onSubmit={handleSubmit} className="login-form">
-					<Form.Item hasFeedback>
-						{getFieldDecorator('email', {
-							rules: [
-								{
-									type: 'email',
-									message: 'Введённые данные не являются E-mail!',
-								},
-								{
-									required: true,
-									message: 'Введите Ваш E-mail!',
-								},
-							],
-						})(<Input size="large" prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} />)}
+					<Form.Item
+						hasFeedback
+						validateStatus={!touched.email ? '' : errors.email ? 'error' : 'success'}
+						help={touched.email && errors.email ? errors.email : null}
+					>
+						<Input
+							size="large"
+							prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+							placeholder="Введите e-mail"
+							onChange={handleChange}
+							onBlur={handleBlur}
+							value={values.email}
+							name="email"
+						/>
 					</Form.Item>
-					<Form.Item hasFeedback>
-						{getFieldDecorator('password', {
-							rules: [
-								{
-									required: true,
-									message: 'Введите Ваш пароль',
-								},
-								{
-									min: 8,
-									message: 'Пароль слишком короткий',
-								},
-							],
-						})(<Input.Password prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} size="large" />)}
+					<Form.Item
+						hasFeedback
+						validateStatus={!touched.password ? '' : errors.password ? 'error' : 'success'}
+						help={touched.password && errors.password ? errors.password : null}
+					>
+						<Input.Password
+							onChange={handleChange}
+							onBlur={handleBlur}
+							value={values.password}
+							name="password"
+							size="large"
+							placeholder="Введите пароль"
+							prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+						/>
 					</Form.Item>
 					<Form.Item>
 						<Button type="primary" htmlType="submit" className="button_large auth__button">

@@ -4,7 +4,7 @@ import { Button, Block } from 'components'
 import { Link } from 'react-router-dom'
 
 const LoginForm = props => {
-	const [success, setSuccess] = useState(false)
+	const [success] = useState(false)
 	const { values, touched, errors, handleChange, handleBlur, handleSubmit } = props
 
 	// const handleSubmit = e => {

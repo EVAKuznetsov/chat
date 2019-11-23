@@ -3,11 +3,9 @@ import { withFormik } from 'formik'
 import validation from 'utils/validation'
 
 export default withFormik({
+	mapPropsToValues: () => ({ email: '', name: '', password: '', confirmPassword: '' }),
 	validate: values => {
-		const errors = {}
-		Object.keys(values).forEach(key => {
-			errors[key] = validation[key] && validation[key](values)
-		})
+		const errors = validation({ isAuth: false, values })
 		return errors
 	},
 
