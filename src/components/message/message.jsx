@@ -1,47 +1,52 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import distanceInWordsToNow from 'date-fns/formatDistanceToNow'
-import russian from 'date-fns/locale/ru'
 import classNames from 'classnames'
 
-import readedSvg from 'assets/img/readed.svg'
-import noReadedSvg from 'assets/img/noreaded.svg'
+import { Time, IconStatus } from 'components'
 
 import './message.sass'
 
-const Message = ({ avatar, user, text, date, isMe, isChecked, attachment }) => {
+const Message = ({ avatar, user, text, date, isMe, isChecked, attachment, isTyping }) => {
 	return (
-		<div className={classNames('message', { message_my: isMe })}>
+		<div
+			className={classNames(
+				'message',
+				{ message_my: isMe },
+				{ message__typing: isTyping },
+				{ message__img: attachment && attachment.length === 1 && !text }
+			)}
+		>
 			<div className="message__avatar">
 				<img src={avatar} alt={`avatar ${user.fullName}`} />
 			</div>
 			<div className="message__wrap">
 				<div className="message__content">
 					<div className="message__info">
-						<div className="message__bubble">
-							<p className="message__text">{text}</p>
-						</div>
-						{!!attachment && (
+						{(text || isTyping) && (
+							<div className="message__bubble">
+								{isTyping && (
+									<>
+										<span className="message__typing-item"></span>
+										<span className="message__typing-item"></span>
+										<span className="message__typing-item"></span>
+									</>
+								)}
+								{text && <p className="message__text">{text}</p>}
+							</div>
+						)}
+						{attachment && (
 							<div className="message__attachment">
 								{attachment.map(file => (
-									<img key src={file.src} className="message__attachment-img" alt={file.fileName} />
+									<div className="message__attachment-img">
+										<img key={file.key} src={file.src} alt={file.fileName} />
+									</div>
 								))}
 							</div>
 						)}
 					</div>
-					{isMe &&
-						(isChecked ? (
-							<img src={readedSvg} className="message__checked" alt="message checked icon" />
-						) : (
-							<img src={noReadedSvg} className="message__checked" alt="message didn't check icon" />
-						))}
+					<IconStatus isChecked={isChecked} className="message__checked" isMe={isMe} />
 				</div>
-				<time className="message__time">
-					{distanceInWordsToNow(new Date(date), {
-						locale: russian,
-						addSuffix: true,
-					})}
-				</time>
+				{date && <Time date={date} />}
 			</div>
 		</div>
 	)
@@ -52,5 +57,6 @@ Message.propTypes = {
 	user: PropTypes.object,
 	text: PropTypes.string,
 	isMe: PropTypes.bool,
+	isTyping: PropTypes.bool,
 }
 export default Message

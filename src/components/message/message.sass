@@ -26,29 +26,57 @@
         box-shadow: 0px 5px 5px rgba($green,0.2)
         border-radius: 12px 12px 12px 0px
         padding: 10px 15px
+    &__typing &__bubble
+        margin-bottom: 12px
+        background-color: rgba(230, 230, 230,0.8)
+        box-shadow: 0px 5px 5px rgba(230, 230, 230,0.2)
+        padding: 15px
+        display: flex
+        flex-direction: row
+
+    &__typing-item
+        width: 8px
+        height: 8px
+        border-radius: 50%
+        background-color: rgba(152, 152, 152, 0.561)
+        margin-right: 8px
+        transition: 0.5s
+        &:nth-of-type(1)
+            animation: animationTyping 1s 0.33s infinite ease-in-out
+        &:nth-of-type(2)
+            animation: animationTyping 1s 0.66s infinite ease-in-out
+        &:nth-of-type(3)
+            animation: animationTyping 1s 0.99s infinite ease-in-out
+
+        &:last-child
+            margin-right: 0
 
     &__text
         color: #fff
         line-height: 20px
     &__time
-        font-size: 12px
-        opacity: 0.4
+
     &__checked
         margin-right: 8px
         margin-bottom: 4px
     &__attachment
         margin-top: 10px
+        display: flex
+        flex-flow: row wrap
+        flex: 1 1
+        justify-content: flex-end
 
     &__attachment-img
         max-height: 45px
         max-width: 45px
-        border-radius: 5px
-        margin: 0px 5px
+        margin: 3px
         cursor: pointer
-        &:last-child
-            margin-right: 0px
-        &:first-child
-            margin-left: 0px
+        position: relative
+
+        & img
+            border-radius: 5px
+            height: 100%
+            width: 100%
 
     &_my
         flex-direction: row-reverse
@@ -71,3 +99,16 @@
             border-radius: 50%
             width: 33px
             height: 33px
+    &__img &__attachment-img
+        max-height: 200px
+        max-width: 200px
+
+@keyframes animationTyping
+    0%
+        background-color: rgba(152, 152, 152, 0.5)
+    33%
+        background-color: rgba(152, 152, 152, 1)
+    66%
+        background-color: rgba(152, 152, 152, 0.5)
+    100%
+        background-color: rgba(152, 152, 152, 0.5)

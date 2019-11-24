@@ -17,7 +17,7 @@ export default ({ isAuth, values }) => {
 			if (!values.password) {
 				errors.password = 'Введите пароль'
 			} else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/i.test(values.password)) {
-				errors.password = isAuth ? 'Неверный пароль' : 'Слишком лёгкий пароль'
+				errors.password = isAuth ? '' : 'Слишком лёгкий пароль'
 			}
 		},
 		confirmPassword: values => {
