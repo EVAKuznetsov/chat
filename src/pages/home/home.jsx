@@ -1,7 +1,6 @@
 import React from 'react'
-// import { Route } from "react-router-dom";
 
-import { Message, DialogsItem } from 'components'
+import { Message, DialogsItem, Button } from 'components'
 
 import './home.sass'
 
@@ -16,9 +15,10 @@ const Home = () => {
 						avatar: 'https://sun9-24.userapi.com/c858320/v858320734/b6fdf/O4EryOKubuU.jpg?ava=1',
 					}}
 					message={{
-						text: 'we must to speak...',
+						text: 'we must to speak... we must to speak we must to speak we must to speak',
 						date: 'Thu Nov 21 2019 13:29:34',
-						isChecked: true,
+						isChecked: false,
+						isMe: false,
 					}}
 				/>
 			</div>
@@ -84,6 +84,12 @@ const Home = () => {
 					user={{ fullName: 'Name' }}
 					isTyping
 				/>
+				<form action="#" className="home__message-input message-input">
+					<div name="message-text" className="message-input__field" contentEditable></div>
+					<Button type="submit" className="message-input__submit-btn">
+						Send
+					</Button>
+				</form>
 			</div>
 		</section>
 	)

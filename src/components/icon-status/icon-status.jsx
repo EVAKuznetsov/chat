@@ -6,9 +6,9 @@ import noReadedSvg from 'assets/img/noreaded.svg'
 
 import './icon-status.sass'
 
-const IconStatus = ({ isMe, isChecked, className }) => (
+const IconStatus = ({ show, isChecked, className }) => (
 	<>
-		{isMe &&
+		{show &&
 			(isChecked ? (
 				<img src={readedSvg} className={className} alt="message checked icon" />
 			) : (

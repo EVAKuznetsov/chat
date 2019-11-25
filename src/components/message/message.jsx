@@ -37,14 +37,14 @@ const Message = ({ avatar, user, text, date, isMe, isChecked, attachment, isTypi
 						{attachment && (
 							<div className="message__attachment">
 								{attachment.map(file => (
-									<div className="message__attachment-img">
-										<img key={file.key} src={file.src} alt={file.fileName} />
+									<div key={file.key} className="message__attachment-img">
+										<img src={file.src} alt={file.fileName} />
 									</div>
 								))}
 							</div>
 						)}
 					</div>
-					<IconStatus isChecked={isChecked} className="message__checked" isMe={isMe} />
+					<IconStatus isChecked={isChecked} className="message__checked" show={isMe} />
 				</div>
 				{date && <Time date={date} />}
 			</div>
