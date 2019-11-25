@@ -13,12 +13,27 @@ const Home = () => {
 					user={{
 						fullName: 'Аня',
 						avatar: 'https://sun9-24.userapi.com/c858320/v858320734/b6fdf/O4EryOKubuU.jpg?ava=1',
+						online: true,
 					}}
 					message={{
 						text: 'we must to speak... we must to speak we must to speak we must to speak',
-						date: 'Thu Nov 21 2019 13:29:34',
-						isChecked: false,
+						date: 'Thu Nov 25 2019 13:29:34',
 						isMe: false,
+					}}
+					unReaded={2}
+				/>
+				<DialogsItem
+					key="33"
+					user={{
+						fullName: 'Руся',
+						avatar: 'https://sun9-69.userapi.com/c834302/v834302074/124ad6/rAuHrrn33uE.jpg?ava=1',
+						online: false,
+					}}
+					message={{
+						text: 'All good!!!  goog good good good good',
+						date: 'Thu Nov 25 2019 15:29:34',
+						isChecked: false,
+						isMe: true,
 					}}
 				/>
 			</div>
