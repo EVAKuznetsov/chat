@@ -50,6 +50,47 @@
 
         &:last-child
             margin-right: 0
+    &__audio
+        &-wrap
+            display: flex
+            flex-flow: row nowrap
+            align-items: center
+            z-index: 2
+            position: relative
+
+        &-progress
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            background-color: #000000
+            opacity: 0.2
+            width: 0%
+            transition: width 0.4s ease
+
+        &-btn
+            display: flex
+            justify-content: center
+            align-items: center
+            border: none
+            height: 30px
+            width: 30px
+            border-radius: 50%
+            background-color: $grey
+            color: #000
+            cursor: pointer
+            & img
+                height: 12px
+        &-wave
+            margin: 0px 15px
+        &-duration
+            color: #ffffff
+            font-weight: 500
+            font-size: 12px
+
+    &__audio &__bubble
+        position: relative
+        overflow: hidden
 
     &__text
         color: #fff
@@ -105,16 +146,18 @@
     &-input
         display: flex
         flex-flow: row nowrap
-        align-items: center
+        align-items: flex-end
         &__field
             flex-grow: 1
             min-height: 15px
             border: 1px solid #d9d9d9
-            padding: 10px 20px
+            padding: 12px 20px
             margin-right: 5px
-            border-radius: 15px
+            border-radius: 5px
             outline: none
             transition: 0.4s
+            color: $text-color-grey
+            word-wrap: break-word
             &:focus
                 border-color: $blue
         &__submit-btn

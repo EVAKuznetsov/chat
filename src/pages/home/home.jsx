@@ -1,46 +1,43 @@
 import React from 'react'
 
-import { Message, DialogsItem, Button } from 'components'
+import { Message, Dialogs, Button } from 'components'
 
 import './home.sass'
 
 const Home = () => {
+	const items = [
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Аня',
+				avatar: 'https://sun9-24.userapi.com/c858320/v858320734/b6fdf/O4EryOKubuU.jpg?ava=1',
+				online: true,
+			},
+			text: 'we must to speak... we must to speak we must to speak we must to speak',
+			created_at: 'Nov 25 2019 14:39:54 GMT+1000',
+			isMe: false,
+			isChecked: false,
+			unReaded: 2,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Руся',
+				avatar: 'https://sun9-69.userapi.com/c834302/v834302074/124ad6/rAuHrrn33uE.jpg?ava=1',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+	]
 	return (
 		<section className="home">
-			<div className="home__dialogs">
-				<DialogsItem
-					key="32"
-					user={{
-						fullName: 'Аня',
-						avatar: 'https://sun9-24.userapi.com/c858320/v858320734/b6fdf/O4EryOKubuU.jpg?ava=1',
-						online: true,
-					}}
-					message={{
-						text: 'we must to speak... we must to speak we must to speak we must to speak',
-						date: 'Thu Nov 25 2019 13:29:34',
-						isMe: false,
-					}}
-					unReaded={2}
-				/>
-				<DialogsItem
-					key="33"
-					user={{
-						fullName: 'Руся',
-						avatar: 'https://sun9-69.userapi.com/c834302/v834302074/124ad6/rAuHrrn33uE.jpg?ava=1',
-						online: false,
-					}}
-					message={{
-						text: 'All good!!!  goog good good good good',
-						date: 'Thu Nov 25 2019 15:29:34',
-						isChecked: false,
-						isMe: true,
-					}}
-				/>
-			</div>
-
+			<Dialogs items={items} />
 			<div className="home__messages">
 				<Message
-					key="991"
+					key={Math.random()}
 					avatar="https://sun9-21.userapi.com/c625120/v625120380/3e6b1/lmmKQNWCn58.jpg?ava=1"
 					text="Hello!!!"
 					user={{ fullName: 'Name' }}
@@ -49,21 +46,21 @@ const Home = () => {
 					isChecked
 				/>
 				<Message
-					key="992"
+					key={Math.random()}
 					avatar="https://sun9-24.userapi.com/c858320/v858320734/b6fdf/O4EryOKubuU.jpg?ava=1"
 					text="Hello !!! we'll never be together...  "
 					user={{ fullName: 'Name' }}
 					date="Thu Nov 21 2019 13:34:34"
 				/>
 				<Message
-					key="993"
+					key={Math.random()}
 					avatar="https://sun9-24.userapi.com/c858320/v858320734/b6fdf/O4EryOKubuU.jpg?ava=1"
 					text="Sorry... "
 					user={{ fullName: 'Name' }}
 					date="Thu Nov 21 2019 13:40:34"
 				/>
 				<Message
-					key="994"
+					key={Math.random()}
 					avatar="https://sun9-21.userapi.com/c625120/v625120380/3e6b1/lmmKQNWCn58.jpg?ava=1"
 					text="Okay, beach"
 					user={{ fullName: 'Name' }}
@@ -84,7 +81,7 @@ const Home = () => {
 					]}
 				/>
 				<Message
-					key="995"
+					key={Math.random()}
 					avatar="https://sun9-21.userapi.com/c625120/v625120380/3e6b1/lmmKQNWCn58.jpg?ava=1"
 					user={{ fullName: 'Name' }}
 					date="Thu Nov 21 2019 13:46:34"
@@ -94,14 +91,29 @@ const Home = () => {
 					]}
 				/>
 				<Message
-					key="996"
+					key={Math.random()}
+					avatar="https://sun9-21.userapi.com/c625120/v625120380/3e6b1/lmmKQNWCn58.jpg?ava=1"
+					user={{ fullName: 'Name' }}
+					date="Thu Nov 21 2019 13:48:34"
+					audio="https://wav-sounds.com/wp-content/uploads/2017/09/Funny-04.wav"
+				/>
+				<Message
+					key={Math.random()}
+					avatar="https://sun9-21.userapi.com/c625120/v625120380/3e6b1/lmmKQNWCn58.jpg?ava=1"
+					user={{ fullName: 'Name' }}
+					date="Thu Nov 21 2019 13:48:34"
+					audio="https://wav-sounds.com/wp-content/uploads/2017/09/Funny-04.wav"
+					isMe
+				/>
+				<Message
+					key={Math.random()}
 					avatar="https://sun9-24.userapi.com/c858320/v858320734/b6fdf/O4EryOKubuU.jpg?ava=1"
 					user={{ fullName: 'Name' }}
 					isTyping
 				/>
 				<form action="#" className="home__message-input message-input">
 					<div name="message-text" className="message-input__field" contentEditable></div>
-					<Button type="submit" className="message-input__submit-btn">
+					<Button type="submit" size="large" className="message-input__submit-btn">
 						Send
 					</Button>
 				</form>
