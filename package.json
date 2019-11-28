@@ -149,6 +149,7 @@
     "react-route": "^1.0.3",
     "react-router-dom": "^5.1.2",
     "react-styleguidist": "^10.2.1",
-    "reset-css": "^5.0.1"
+    "reset-css": "^5.0.1",
+    "tinycolor2": "^1.4.1"
   }
 }

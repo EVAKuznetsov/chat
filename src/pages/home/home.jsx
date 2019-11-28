@@ -31,6 +31,17 @@ const Home = () => {
 			isChecked: false,
 			isMe: true,
 		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
 	]
 	return (
 		<section className="home">
