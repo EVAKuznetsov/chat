@@ -71,7 +71,18 @@ const MessageAudio = ({ audio }) => {
 	)
 }
 
-const Message = ({ avatar, user, text, date, isMe, isChecked, attachment, isTyping, audio }) => {
+const Message = ({ messageData }) => {
+	const {
+		avatar = '',
+		user = {},
+		text = '',
+		date = '',
+		isMe = false,
+		isChecked = false,
+		attachment = [],
+		isTyping = false,
+		audio = '',
+	} = messageData
 	return (
 		<div
 			className={classNames(

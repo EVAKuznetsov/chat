@@ -36,7 +36,7 @@ const DialogsItem = ({ message }) => {
 				<div className="dialogs-item__main">
 					<span className="dialogs-item__text">{text}</span>
 					{isMe && <IconStatus isChecked={isChecked} className="dialogs-item__isChecked" show={message.isMe} />}
-					{unReaded > 0 && <div className="dialogs-item__count-mis">{unReaded}</div>}
+					{unReaded > 0 && <div className="dialogs-item__count-mis">{unReaded < 100 ? unReaded : '99+'}</div>}
 				</div>
 			</div>
 		</div>

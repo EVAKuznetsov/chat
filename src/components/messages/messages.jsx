@@ -3,22 +3,21 @@ import PropTypes from 'prop-types'
 // import classNames from 'classnames'
 import orderBy from 'lodash/orderBy'
 
-import { DialogsItem } from 'components'
+import { Message } from 'components'
 
-import './dialogs.sass'
-
-const Dialogs = ({ items, className }) => {
+const Messages = ({ items, className }) => {
 	return (
 		<div className={className}>
 			{/*сортируем по дате отправки сообщений и отрисовываем список диалогов*/}
-			{orderBy(items, 'created_at', 'desc').map(item => (
-				<DialogsItem message={item} key={item._id} />
+			{orderBy(items, 'date', 'asc').map(item => (
+				<Message messageData={item} key={item.key} />
 			))}
 		</div>
 	)
 }
 
-Dialogs.propTypes = {
+Messages.propTypes = {
 	items: PropTypes.array,
+	className: PropTypes.string,
 }
-export default Dialogs
+export default Messages
