@@ -2,77 +2,82 @@
     display: flex
     background-color: #fff
     width: 1100px
-
+    height: 100%
+    box-shadow: 5px 0px 10px $grey,-5px 0px 10px $grey
+    &__icon-antd
+        cursor: pointer
+        opacity: 0.5
+        transition: 0.3s
+        font-size: 18px
+        &:hover
+            opacity: 1
     &__sidebar
         flex-basis: 350px
         border-right: 1px solid #f7f7f7
-    &__sidebar-header
         display: flex
-        justify-content: space-between
-        padding: 20px
-    &__sidebar-search
-        padding: 0 20px 20px 20px
-        input
-            background-color: #f7f8f9
-            border: none
+        flex-direction: column
+
+        &-header
+            display: flex
+            justify-content: space-between
             padding: 20px
-            border-radius: 5px
-            &:focus
+            flex: 0 0
+            &-title
+                display: flex
+                align-items: flex-end
+                &-icon
+                    margin-right: 5px
+                    font-size: 18px
+        &-search
+            padding: 0 20px 20px 20px
+            flex: 0 0
+            input
+                background-color: #f7f8f9
                 border: none
-                box-shadow: none
-    &__sidebar-dialogs-bar
-        max-width: 400px
-        width: 100%
-        overflow-y: scroll
+                padding: 20px
+                border-radius: 5px
+                &:focus
+                    border: none
+                    box-shadow: none
+        &-dialogs-bar
+            flex: 1 1
+            max-width: 400px
+            width: 100%
+            overflow-y: scroll
+            margin-bottom: 20px
 
     &__dialog
         flex: 1
         width: 100%
-        padding-bottom: 10px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+
         &-header
             padding: 12px
             display: flex
             justify-content: space-between
             align-items: center
             box-shadow: 0px 2px 2px $grey
+            flex: 0 0
             i
                 font-size: 22px
                 cursor: pointer
+
         &-header-info
             display: flex
             align-items: center
             flex-direction: column
 
-        &-header-username
-            font-size: 16px
-            font-weight: 600
-            margin-bottom: 5px
+            &-username
+                font-size: 16px
+                font-weight: 600
+                margin-bottom: 5px
 
         &-content
-            height: 600px
+            flex: 1 1
             width: 100%
             display: flex
             flex-direction: column
             overflow-y: scroll
-
-            margin-bottom: 15px
             padding: 15px
-.status
-    font-weight: 300
-    font-size: 12px
-    text-transform: lowercase
-    color: $text-color-grey
-    position: relative
-    display: flex
-    align-items: center
-    &::before
-        content: ''
-        display: inline-block
-        height: 7px
-        width: 7px
-        background-color: $grey
-        border-radius: 50%
-        margin-right: 3px
-    &_online
-        &::before
-            background-color: $green

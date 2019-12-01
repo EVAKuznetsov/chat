@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import readedSvg from 'assets/img/readed.svg'
 import noReadedSvg from 'assets/img/noreaded.svg'
 
-import './icon-status.sass'
-
 const IconStatus = ({ show, isChecked, className }) => (
 	<>
 		{show &&

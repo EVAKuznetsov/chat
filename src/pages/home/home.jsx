@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Icon, Input } from 'antd'
-import { Dialogs, Messages, Button } from 'components'
+import { Dialogs, Messages, Status, ChatInput } from 'components'
 
 import './home.sass'
 
@@ -25,6 +25,204 @@ const Home = () => {
 			user: {
 				fullName: 'Рслан Холяев',
 				avatar: 'https://sun9-69.userapi.com/c834302/v834302074/124ad6/rAuHrrn33uE.jpg?ava=1',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
+				online: false,
+			},
+			text: 'All good!!!  goog good good good good',
+			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
+			isChecked: false,
+			isMe: true,
+		},
+		{
+			_id: Math.random(),
+			user: {
+				fullName: 'Иван Петрович',
 				online: false,
 			},
 			text: 'All good!!!  goog good good good good',
@@ -125,10 +323,10 @@ const Home = () => {
 				<div className="chat__sidebar">
 					<div className="chat__sidebar-header">
 						<div className="chat__sidebar-header-title">
-							<Icon type="team" />
+							<Icon type="team" className="chat__sidebar-header-title-icon" />
 							<span>Список диалогов</span>
 						</div>
-						<Icon type="form" />
+						<Icon type="form" className="chat__icon-antd" />
 					</div>
 					<div className="chat__sidebar-search">
 						<Input.Search placeholder="Поиск среди контактов" onSearch={value => false} style={{ width: '100%' }} />
@@ -139,20 +337,15 @@ const Home = () => {
 					<div className="chat__dialog-header">
 						<div></div>
 						<div className="chat__dialog-header-info">
-							<div className="chat__dialog-header-username">User name</div>
+							<div className="chat__dialog-header-username">Аня Марченко</div>
 							<div className="chat__dialog-status">
-								<div className="status status_online">Онлайн</div>
+								<Status online={false} />
 							</div>
 						</div>
-						<Icon type="ellipsis" />
+						<Icon type="ellipsis" className="chat__icon-antd" />
 					</div>
 					<Messages items={itemsMessages} className="chat__dialog-content" />
-					<form action="#" className="home__message-input message-input">
-						<div name="message-text" className="message-input__field" contentEditable></div>
-						<Button type="submit" size="large" className="message-input__submit-btn">
-							Send
-						</Button>
-					</form>
+					<ChatInput />
 				</div>
 			</div>
 		</section>

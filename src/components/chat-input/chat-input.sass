@@ -1,0 +1,45 @@
+@import "~styles/_variables"
+
+.chat-input
+    position: relative
+    margin: 20px
+    display: flex
+    align-items: flex-end
+    justify-content: space-between
+    &__btn
+        padding: 0
+        background-color: transparent
+        border: none
+        font-size: 18px
+        cursor: pointer
+        opacity: 0.5
+        transition: 0.3s
+        margin-bottom: 3px
+
+        &:hover,&:focus,&:active
+            opacity: 1
+            color: rgba(0, 0, 0, 0.65)
+        &::after
+            content: ''
+            display: none
+
+    &__smile-btn
+        z-index: 2
+        flex: 0 0
+        margin-right: 10px
+    &__input-field
+        // padding-left: 34px
+        // padding-right: 88px
+        flex: 1 1
+        &:focus
+            box-shadow: none
+            border-color: #d9d9d9
+        &:hover
+            border-color: #d9d9d9
+    &__actions
+        z-index: 2
+        display: flex
+        justify-content: space-between
+        width: 70px
+        flex: 0 0
+        margin-left: 10px

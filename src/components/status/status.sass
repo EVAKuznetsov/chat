@@ -1,0 +1,21 @@
+@import "~styles/_variables"
+
+.status
+    font-weight: 300
+    font-size: 12px
+    text-transform: lowercase
+    color: $text-color-grey
+    position: relative
+    display: flex
+    align-items: center
+    &::before
+        content: ''
+        display: inline-block
+        height: 7px
+        width: 7px
+        background-color: $grey
+        border-radius: 50%
+        margin-right: 3px
+    &_online
+        &::before
+            background-color: $green
