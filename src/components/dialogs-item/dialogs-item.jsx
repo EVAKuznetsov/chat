@@ -21,10 +21,10 @@ const getMessageTime = created_at => {
 	}
 }
 
-const DialogsItem = ({ message }) => {
+const DialogsItem = ({ message, chooseDialog }) => {
 	const { user, text, isChecked, created_at, unReaded, isMe } = message
 	return (
-		<div className="dialogs-item">
+		<div className="dialogs-item" onClick={chooseDialog}>
 			<div className={classNames('dialogs-item__avatar', { 'dialogs-item__avatar_online': user.online })}>
 				<Avatar user={user} />
 			</div>

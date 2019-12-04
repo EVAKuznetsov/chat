@@ -1,37 +1,49 @@
-[{
-    _id: Math.random(),
-			user: {
-				fullName: 'Аня',
-				avatar: 'https://sun9-24.userapi.com/c858320/v858320734/b6fdf/O4EryOKubuU.jpg?ava=1',
-				online: true,
-			},
-			text: 'we must to speak... we must to speak we must to speak we must to speak',
-			created_at: 'Nov 25 2019 14:39:54 GMT+1000',
-			isMe: false,
-			isChecked: false,
-			unReaded: 2,
-		},
-		{
-			_id: Math.random(),
-			user: {
-				fullName: 'Руся',
-				avatar: 'https://sun9-69.userapi.com/c834302/v834302074/124ad6/rAuHrrn33uE.jpg?ava=1',
-				online: false,
-			},
-			text: 'All good!!!  goog good good good good',
-			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
-			isChecked: false,
-			isMe: true,
-		},
-		{
-			_id: Math.random(),
-			user: {
-				fullName: 'Иван Петрович',
-				online: false,
-			},
-			text: 'All good!!!  goog good good good good',
-			created_at: 'Nov 26 2019 14:39:55 GMT+1000',
-			isChecked: false,
-			isMe: true,
-		}, 
+[
+    {
+        "_id": 1,
+        "user": {
+            "fullName": "Анна Марченко",
+            "avatar": "https://sun9-24.userapi.com/c858320/v858320734/b6fdf/O4EryOKubuU.jpg?ava=1",
+            "online": true
+        },
+        "text": "we must to speak... we must to speak we must to speak we must to speak",
+        "created_at": "Nov 25 2019 14:39:54 GMT+1000",
+        "isMe": false,
+        "isChecked": false,
+        "unReaded": "2"
+    },
+    {
+        "_id": 2,
+        "user": {
+            "fullName": "Рслан Холяев",
+            "avatar": "https://sun9-69.userapi.com/c834302/v834302074/124ad6/rAuHrrn33uE.jpg?ava=1",
+            "online": false
+        },
+        "text": "All good!!!  goog good good good good",
+        "created_at": "Nov 26 2019 14:39:55 GMT+1000",
+        "isChecked": false,
+        "isMe": true
+    },
+    {
+        "_id": 3,
+        "user": {
+            "fullName": "Иван Петрович",
+            "online": false
+        },
+        "text": "All good!!!  goog good good good good",
+        "created_at": "Nov 26 2019 14:39:55 GMT+1000",
+        "isChecked": false,
+        "isMe": true
+    },
+    {
+        "_id": 4,
+        "user": {
+            "fullName": "Синькин Михаил",
+            "online": true
+        },
+        "text": "Hello",
+        "created_at": "Nov 29 2019 14:39:55 GMT+1000",
+        "isChecked": true,
+        "isMe": true
+    }
 ]
