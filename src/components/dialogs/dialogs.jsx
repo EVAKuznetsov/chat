@@ -6,9 +6,9 @@ import orderBy from 'lodash/orderBy'
 
 import { DialogsItem } from 'components'
 
-import './dialogs.sass'
+import './Dialogs.sass'
 
-const Dialogs = ({ items, className, onSearch, inputValue, chooseDialog }) => {
+const Dialogs = ({ items, currentDialogId, className, onSearch, inputValue, chooseDialog }) => {
 	return (
 		<>
 			<div className="chat__sidebar-search">
@@ -23,7 +23,12 @@ const Dialogs = ({ items, className, onSearch, inputValue, chooseDialog }) => {
 				<div className={className}>
 					{/*сортируем по дате отправки сообщений и отрисовываем список диалогов*/}
 					{orderBy(items, 'created_at', 'desc').map(item => (
-						<DialogsItem message={item} key={item._id} chooseDialog={() => chooseDialog(item._id)} />
+						<DialogsItem
+							message={item}
+							currentDialogId={currentDialogId}
+							key={item._id}
+							chooseDialog={() => chooseDialog(item._id)}
+						/>
 					))}
 				</div>
 			) : (

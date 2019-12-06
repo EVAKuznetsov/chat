@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Button as BaseButton } from 'antd'
 import ClassNames from 'classnames'
 
-import './button.sass'
+import './Button.sass'
 
 const Button = props => {
 	return (

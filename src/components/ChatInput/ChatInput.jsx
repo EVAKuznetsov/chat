@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Input } from 'antd'
 import { Button } from 'components'
 
-import './chat-input.sass'
+import './ChatInput.sass'
 
 const ChatInput = () => {
 	const [textInput, setTextInput] = useState('')

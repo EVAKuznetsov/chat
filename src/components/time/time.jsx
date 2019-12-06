@@ -4,7 +4,7 @@ import distanceInWordsToNow from 'date-fns/formatDistanceToNow'
 import russian from 'date-fns/locale/ru'
 import classNames from 'classnames'
 
-import './time.sass'
+import './Time.sass'
 
 const Time = ({ date, className }) => {
 	return (

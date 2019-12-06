@@ -8,7 +8,7 @@ import format from 'date-fns/format'
 import isToday from 'date-fns/isToday'
 import isThisYear from 'date-fns/isThisYear'
 
-import './dialogs-item.sass'
+import './DialogsItem.sass'
 
 const getMessageTime = created_at => {
 	if (created_at) {
@@ -21,10 +21,13 @@ const getMessageTime = created_at => {
 	}
 }
 
-const DialogsItem = ({ message, chooseDialog }) => {
-	const { user, text, isChecked, created_at, unReaded, isMe } = message
+const DialogsItem = ({ message, chooseDialog, currentDialogId }) => {
+	const { _id, user, text, isChecked, created_at, unReaded, isMe } = message
 	return (
-		<div className="dialogs-item" onClick={chooseDialog}>
+		<div
+			className={classNames('dialogs-item', { 'dialogs-item_active': currentDialogId === _id })}
+			onClick={chooseDialog}
+		>
 			<div className={classNames('dialogs-item__avatar', { 'dialogs-item__avatar_online': user.online })}>
 				<Avatar user={user} />
 			</div>
