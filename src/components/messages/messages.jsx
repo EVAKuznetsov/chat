@@ -7,7 +7,7 @@ import { Empty } from 'antd'
 import { Message } from 'components'
 
 const Messages = ({ items, className }) => {
-	return items ? (
+	return items.length ? (
 		<div className={className}>
 			{orderBy(items, 'date', 'asc').map(item => (
 				<Message messageData={item} key={item._id} />

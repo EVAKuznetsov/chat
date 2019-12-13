@@ -6,8 +6,11 @@ import { messagesActions } from 'redux/actions'
 import { Messages as BaseMessages } from 'components'
 
 const Messages = ({ items, className, fetchMessages, currentDialogId }) => {
+	/**
+	 * При изменении в сторе текущего диалога будем обновлять список сообщений
+	 */
 	useEffect(() => {
-		fetchMessages(currentDialogId)
+		currentDialogId && fetchMessages(currentDialogId)
 	}, [currentDialogId, fetchMessages])
 
 	return <BaseMessages items={items} className={className} />
