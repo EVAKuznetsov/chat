@@ -6,16 +6,16 @@ import ClassNames from 'classnames'
 import './Button.sass'
 
 const Button = props => {
-	return (
-		<div>
-			<BaseButton {...props} className={ClassNames('button', props.className)}>
-				{props.children}
-			</BaseButton>
-		</div>
-	)
+  return (
+    <div>
+      <BaseButton {...props} className={ClassNames('button', props.className)}>
+        {props.children}
+      </BaseButton>
+    </div>
+  )
 }
 
 Button.propTypes = {
-	className: PropTypes.string,
+  className: PropTypes.string,
 }
 export default Button

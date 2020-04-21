@@ -7,18 +7,18 @@ import classNames from 'classnames'
 import './Time.sass'
 
 const Time = ({ date, className }) => {
-	return (
-		<time className={classNames('time', className)}>
-			{distanceInWordsToNow(new Date(date), {
-				locale: russian,
-				addSuffix: true,
-			})}
-		</time>
-	)
+  return (
+    <time className={classNames('time', className)}>
+      {distanceInWordsToNow(new Date(date), {
+        locale: russian,
+        addSuffix: true,
+      })}
+    </time>
+  )
 }
 
 Time.propTypes = {
-	date: PropTypes.string,
-	className: PropTypes.string,
+  date: PropTypes.string,
+  className: PropTypes.string,
 }
 export default Time
