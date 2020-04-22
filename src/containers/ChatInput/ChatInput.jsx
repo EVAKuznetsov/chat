@@ -6,9 +6,9 @@ import { ChatInput as BaseChatInput } from 'components'
 
 const ChatInput = () => {
   const dispatch = useDispatch()
-  const { currentDialogId } = useSelector(state => state.messages)
+  const { currentDialogId } = useSelector(state => state.dialogs)
   const [value, setValue] = useState('')
-
+  const [emojiVisible, setEmojiVisible] = useState(false)
   const changeValue = val => {
     setValue(val)
   }
@@ -22,12 +22,23 @@ const ChatInput = () => {
     dispatch(addMessage(messageData))
     setValue('')
   }
-  return (
+  const toggleEmoji = () => {
+    setEmojiVisible(current => !current)
+  }
+  const addEmoji = emoji => {
+    setValue(val => (val + ' ' + emoji).trim())
+  }
+  return currentDialogId ? (
     <BaseChatInput
       value={value}
       sendMessage={sendMessage}
       changeValue={changeValue}
+      toggleEmoji={toggleEmoji}
+      emojiVisible={emojiVisible}
+      addEmoji={addEmoji}
     />
+  ) : (
+    <div></div>
   )
 }
 export default ChatInput
