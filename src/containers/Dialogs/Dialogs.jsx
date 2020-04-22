@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { dialogsActions } from 'redux/actions'
+import { fetchDialogs, setCurentDialog } from 'redux/actions/dialogs'
 import { Dialogs as BaseDialogs } from 'components'
 
 const Dialogs = props => {
-  // console.log(props)
-  const {
-    fetchDialogs,
-    setCurentDialog,
-    items,
-    currentDialogId,
-    className,
-  } = props
-
+  const dispatch = useDispatch()
+  const { className } = props
+  const { items, currentDialogId } = useSelector(state => state.dialogs)
   const [filtered, setFiltered] = useState(Array.from(items))
   const [inputValue, setInputValue] = useState('')
 
@@ -26,14 +20,14 @@ const Dialogs = props => {
     setInputValue(value)
   }
   const chooseDialog = id => {
-    // alert(`Вы начали беседу с ${items.find(dialog => dialog._id === id).user.fullName}`)
     setInputValue('')
-    setCurentDialog(id)
+    dispatch(setCurentDialog(id))
   }
 
   useEffect(() => {
-    !items.length ? fetchDialogs() : setFiltered(items)
-  }, [fetchDialogs, items])
+    !items.length ? dispatch(fetchDialogs()) : setFiltered(items)
+  }, [dispatch, items])
+
   return (
     <BaseDialogs
       className={className}
@@ -45,6 +39,4 @@ const Dialogs = props => {
     />
   )
 }
-const mapStateToProps = state => state.dialogs
-
-export default connect(mapStateToProps, dialogsActions)(Dialogs)
+export default Dialogs

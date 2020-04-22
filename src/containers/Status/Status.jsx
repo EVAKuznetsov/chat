@@ -1,16 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { Status as StatusBase } from 'components'
 
-const Status = ({ dialogs, currentDialogId }) => {
+const Status = () => {
+  const { currentDialogId } = useSelector(state => state.dialogs)
   if (!currentDialogId) {
     return null
   }
   return <StatusBase />
 }
-const mapStateToProps = state => ({
-  dialogs: state.dialogs.items,
-  currentDialogId: state.dialogs.currentDialogId,
-})
-export default connect(mapStateToProps)(Status)
+export default Status

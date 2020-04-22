@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { messagesActions } from 'redux/actions'
+import { addMessage } from 'redux/actions/messages'
 import { ChatInput as BaseChatInput } from 'components'
 
-const ChatInput = ({ currentDialogId, addMessage }) => {
+const ChatInput = () => {
+  const dispatch = useDispatch()
+  const { currentDialogId } = useSelector(state => state.messages)
   const [value, setValue] = useState('')
 
   const changeValue = val => {
@@ -18,7 +19,7 @@ const ChatInput = ({ currentDialogId, addMessage }) => {
       dialogId: currentDialogId,
       created_at: new Date(),
     }
-    addMessage(messageData)
+    dispatch(addMessage(messageData))
     setValue('')
   }
   return (
@@ -29,10 +30,4 @@ const ChatInput = ({ currentDialogId, addMessage }) => {
     />
   )
 }
-const mapStateToProps = state => ({
-  currentDialogId: state.dialogs.currentDialogId,
-})
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(messagesActions, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChatInput)
+export default ChatInput

@@ -1,14 +1,15 @@
+import { SET_ITEMS, SET_CURRENT_DIALOG_ID } from 'constants/dialogsActions'
 const initialState = {
-	items: [],
-	currentDialogId: null,
+  items: [],
+  currentDialogId: null,
 }
 export default (state = initialState, actions) => {
-	switch (actions.type) {
-		case 'DIALOGS:SET_ITEMS':
-			return { items: actions.payload }
-		case 'DIALOGS:SET_CURRENT_DIALOG_ID':
-			return { ...state, currentDialogId: actions.payload }
-		default:
-			return state
-	}
+  switch (actions.type) {
+    case SET_ITEMS:
+      return { ...state, items: actions.payload }
+    case SET_CURRENT_DIALOG_ID:
+      return { ...state, currentDialogId: actions.payload }
+    default:
+      return state
+  }
 }
