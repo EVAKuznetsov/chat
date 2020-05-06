@@ -1,7 +1,7 @@
 import {
   SET_ALL_MESSAGES,
   SET_IS_LOADING,
-  ADD_MESSAGES,
+  ADD_MESSAGE,
 } from 'constants/messagesActions'
 
 const initialState = {
@@ -14,8 +14,8 @@ export default (state = initialState, actions) => {
       return { ...state, items: actions.payload }
     case SET_IS_LOADING:
       return { ...state, isLoading: actions.payload }
-    case ADD_MESSAGES:
-      return { ...state, items: [...state.items, { ...actions.payload }] }
+    case ADD_MESSAGE:
+      return { ...state, items: [...state.items, { ...actions.message }] }
     default:
       return state
   }

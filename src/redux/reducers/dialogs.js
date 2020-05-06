@@ -1,7 +1,7 @@
 import { SET_ITEMS, SET_CURRENT_DIALOG_ID } from 'constants/dialogsActions'
 const initialState = {
   items: [],
-  currentDialogId: null,
+  currentDialogId: window.location.pathname.split('dialog/')[1],
 }
 export default (state = initialState, actions) => {
   switch (actions.type) {

@@ -4,7 +4,7 @@ import { Icon, Popover, Menu } from 'antd'
 import PropTypes from 'prop-types'
 import './Status.sass'
 
-const Status = ({ online = true }) => {
+const Status = ({ dialog = {}, partner = {} }) => {
   const popoverContent = (
     <div>
       <Menu>
@@ -20,20 +20,24 @@ const Status = ({ online = true }) => {
     </div>
   )
   return (
-    <>
+    <div className="chat__dialog-header">
       <div></div>
       <div className="chat__dialog-header-info">
-        <div className="chat__dialog-header-username">Аня Марченко</div>
+        <div className="chat__dialog-header-username">{partner.fullName}</div>
         <div className="chat__dialog-status">
-          <div className={classNames('status', { status_online: online })}>
-            {online ? 'Онлайн' : 'Офлайн'}
+          <div
+            className={classNames('status', {
+              status_online: partner.isOnline,
+            })}
+          >
+            {partner.isOnline ? 'Онлайн' : 'Офлайн'}
           </div>
         </div>
       </div>
       <Popover content={popoverContent} trigger="click" placement="bottomRight">
         <Icon type="ellipsis" className="chat__icon-antd" />
       </Popover>
-    </>
+    </div>
   )
 }
 Status.propTypes = {

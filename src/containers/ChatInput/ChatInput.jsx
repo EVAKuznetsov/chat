@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { addMessage } from 'redux/actions/messages'
+import { fetchSendMessage } from 'redux/actions/messages'
 import { ChatInput as BaseChatInput } from 'components'
 
 const ChatInput = () => {
@@ -13,14 +13,11 @@ const ChatInput = () => {
     setValue(val)
   }
   const sendMessage = () => {
-    const messageData = {
-      _id: 999,
-      text: value,
-      dialogId: currentDialogId,
-      created_at: new Date(),
-    }
-    dispatch(addMessage(messageData))
+    dispatch(fetchSendMessage({ text: value, dialog_id: currentDialogId }))
     setValue('')
+  }
+  const onSubmit = e => {
+    if (e.keyCode === 13) return sendMessage()
   }
   const toggleEmoji = () => {
     setEmojiVisible(current => !current)
@@ -31,6 +28,7 @@ const ChatInput = () => {
   return currentDialogId ? (
     <BaseChatInput
       value={value}
+      onSubmit={onSubmit}
       sendMessage={sendMessage}
       changeValue={changeValue}
       toggleEmoji={toggleEmoji}

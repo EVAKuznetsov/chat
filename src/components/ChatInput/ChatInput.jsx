@@ -9,6 +9,7 @@ import './ChatInput.sass'
 
 const ChatInput = ({
   value,
+  onSubmit,
   sendMessage,
   changeValue,
   toggleEmoji,
@@ -30,6 +31,7 @@ const ChatInput = ({
       <Input
         placeholder="Введите сообщение"
         size="large"
+        onKeyUp={onSubmit}
         className="chat-input__input-field"
         value={value}
         onChange={e => changeValue(e.target.value)}

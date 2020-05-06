@@ -9,6 +9,7 @@ import { DialogsItem } from 'components'
 import './Dialogs.sass'
 
 const Dialogs = ({
+  userId,
   items,
   currentDialogId,
   className,
@@ -31,7 +32,9 @@ const Dialogs = ({
           {/*сортируем по дате отправки сообщений и отрисовываем список диалогов*/}
           {orderBy(items, 'created_at', 'desc').map(item => (
             <DialogsItem
-              message={item}
+              isMe={userId === item.lastMessage.user._id}
+              partner={userId === item.author._id ? item.partner : item.author}
+              dialog={item}
               currentDialogId={currentDialogId}
               key={item._id}
               chooseDialog={() => chooseDialog(item._id)}

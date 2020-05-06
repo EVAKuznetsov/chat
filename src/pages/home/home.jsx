@@ -2,7 +2,6 @@ import React from 'react'
 import { Icon } from 'antd'
 
 import { Dialogs, Messages, ChatInput, Status } from 'containers'
-
 import './home.sass'
 
 const Home = () => {
@@ -21,7 +20,7 @@ const Home = () => {
           <Dialogs className="chat__sidebar-dialogs-bar" />
         </div>
         <div className="chat__dialog">
-          <div className="chat__dialog-header">
+          <div className="chat__dialog-header-wrap">
             <Status />
           </div>
           <Messages className="chat__dialog-content" />

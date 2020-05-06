@@ -2,17 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import { Time, IconStatus, AudioMessage } from 'components'
+import { Time, IconStatus, AudioMessage, Avatar } from 'components'
 
 import './Message.sass'
 
-const Message = ({ messageData }) => {
+const Message = ({ messageData, isMe = false }) => {
   const {
-    avatar = '',
     user = {},
     text = '',
     date = '',
-    isMe = false,
     isChecked = false,
     attachment = [],
     isTyping = false,
@@ -29,7 +27,7 @@ const Message = ({ messageData }) => {
       )}
     >
       <div className="message__avatar">
-        <img src={avatar} alt={`avatar ${user.fullName}`} />
+        <Avatar user={user} />
       </div>
       <div className="message__wrap">
         <div className="message__content">
