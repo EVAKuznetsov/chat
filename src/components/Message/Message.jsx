@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { Button, Popover, Menu, Popconfirm, Icon } from 'antd'
 
 import { Time, IconStatus, AudioMessage, Avatar } from 'components'
 
 import './Message.sass'
 
-const Message = ({ messageData, isMe = false }) => {
+const Message = ({ messageData, removeMessage, isMe = false }) => {
   const {
     user = {},
     text = '',
@@ -16,6 +17,19 @@ const Message = ({ messageData, isMe = false }) => {
     isTyping = false,
     audio = '',
   } = messageData
+  const popoverContent = (
+    <div>
+      <Popconfirm
+        title="Вы дейнствительно хотите удалить сообщение?"
+        onConfirm={removeMessage}
+        okText="Да"
+        cancelText="Нет"
+        placement="leftTop"
+      >
+        <Button icon="delete">Удалить сообщение</Button>
+      </Popconfirm>
+    </div>
+  )
   return (
     <div
       className={classNames(
@@ -55,6 +69,19 @@ const Message = ({ messageData, isMe = false }) => {
               </div>
             )}
           </div>
+          {isMe && (
+            <Popover
+              placement="topLeft"
+              content={popoverContent}
+              trigger="click"
+            >
+              <Icon
+                type="ellipsis"
+                size="large"
+                className="message__settings"
+              />
+            </Popover>
+          )}
           <IconStatus
             isChecked={isChecked}
             className="message__checked"

@@ -5,7 +5,14 @@ import { Empty, Spin } from 'antd'
 
 import { Message } from 'components'
 
-const Messages = ({ items, bottomRef, userId, className, isLoading }) => {
+const Messages = ({
+  items,
+  removeMessage,
+  bottomRef,
+  userId,
+  className,
+  isLoading,
+}) => {
   return items && isLoading ? (
     <Spin />
   ) : items && items.length ? (
@@ -13,6 +20,7 @@ const Messages = ({ items, bottomRef, userId, className, isLoading }) => {
       {orderBy(items, 'date', 'asc').map(item => (
         <Message
           messageData={item}
+          removeMessage={removeMessage.bind(null, item._id)}
           isMe={item.user.id === userId}
           key={item._id}
         />

@@ -4,9 +4,10 @@ import {
   SET_IS_LOADING,
   SET_ALL_MESSAGES,
   FETCH_SEND_MESSAGE,
+  FETCH_REMOVE_MESSAGE,
 } from '../../constants/messagesActions'
 import { messagesApi } from 'utils/api'
-import { addMessage } from '../actions/messages'
+// import { addMessage } from '../actions/messages'
 
 /*******************
  * WATCHERS
@@ -17,6 +18,9 @@ function* watchFetchMessages() {
 }
 function* watchFetchSendMessage() {
   yield takeEvery(FETCH_SEND_MESSAGE, fetchSendMessage)
+}
+function* watchRemoveMessage() {
+  yield takeEvery(FETCH_REMOVE_MESSAGE, removeMessage)
 }
 
 /*******************
@@ -42,6 +46,16 @@ function* fetchSendMessage({ message }) {
   }
 }
 
+function* removeMessage({ messageId }) {
+  try {
+    yield call(messagesApi.removeById, messageId)
+  } catch (error) {}
+}
+
 export default function* messagesSaga() {
-  yield all([watchFetchMessages(), watchFetchSendMessage()])
+  yield all([
+    watchFetchMessages(),
+    watchFetchSendMessage(),
+    watchRemoveMessage(),
+  ])
 }
