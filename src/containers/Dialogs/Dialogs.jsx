@@ -32,12 +32,12 @@ const Dialogs = props => {
     socket.on('SERVER:DIALOG_CREATED', () => {
       dispatch(fetchDialogs())
     })
-    socket.on('SERVER:LAST_MESSAGE_CREATED', message => {
+    socket.on('SERVER:LAST_MESSAGE_CHANGED', message => {
       dispatch(updateLastMessageInDialog(message))
     })
     return () => {
       socket.removeListener('SERVER:DIALOG_CREATED')
-      socket.removeListener('SERVER:MESSAGE_CREATED')
+      socket.removeListener('SERVER:LAST_MESSAGE_CHANGED')
     }
   }, [dispatch])
   useEffect(() => {

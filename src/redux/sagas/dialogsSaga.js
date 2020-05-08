@@ -21,6 +21,7 @@ function* fetchData() {
 }
 
 function* updateLastMessage({ message }) {
+  console.log(message)
   const dialogs = yield select(state => state.dialogs.items)
   const dialog = dialogs.find(dialog => dialog._id === message.dialog._id)
   if (dialog)
