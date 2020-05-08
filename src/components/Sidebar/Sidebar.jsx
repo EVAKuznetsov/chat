@@ -29,7 +29,12 @@ const Sidebar = ({
           <Icon type="team" className="chat__sidebar-header-title-icon" />
           <span>Список диалогов</span>
         </div>
-        <Button shape="circle" type="link" icon="form" onClick={showModal} />
+        <Button
+          type="link"
+          icon="form"
+          className="chat__sidebar-new-dialog-btn"
+          onClick={showModal}
+        />
       </div>
       <Modal
         title="Начать беседу"

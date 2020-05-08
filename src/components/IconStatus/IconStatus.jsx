@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import readedSvg from 'assets/img/readed.svg'
 import noReadedSvg from 'assets/img/noreaded.svg'
 
-const IconStatus = ({ show, readed = false, className }) => {
+const IconStatus = ({ show, isChecked, className }) => {
   return (
     <>
       {show &&
-        (readed ? (
+        (isChecked ? (
           <img
             src={readedSvg}
             className={className}

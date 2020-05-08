@@ -29,13 +29,9 @@ const DialogsItem = ({
   chooseDialog,
   currentDialogId,
 }) => {
-  // console.log(dialog)
-  // console.log(partner)
-  // console.log(isMe)
-
-  const { _id, lastMessage, isChecked, unReaded } = dialog
+  const { _id, lastMessage, unReaded } = dialog
   return (
-    <Link to={`/dialog/${_id}`}>
+    <Link to={`/chat/dialog/${_id}`}>
       <div
         className={classNames('dialogs-item', {
           'dialogs-item_active': currentDialogId === _id,
@@ -53,13 +49,15 @@ const DialogsItem = ({
           <div className="dialogs-item__top">
             <span className="dialogs-item__name">{partner.fullName}</span>
             <div className="dialogs-item__info">
-              {getMessageTime(lastMessage.createdAt)}
+              {lastMessage && getMessageTime(lastMessage.createdAt)}
             </div>
           </div>
           <div className="dialogs-item__main">
-            <span className="dialogs-item__text">{lastMessage.text}</span>
+            <span className="dialogs-item__text">
+              {lastMessage && lastMessage.text}
+            </span>
             <IconStatus
-              isChecked={lastMessage.readed}
+              isChecked={lastMessage && lastMessage.readed}
               className="dialogs-item__isChecked"
               show={isMe}
             />

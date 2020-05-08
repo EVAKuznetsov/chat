@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { Button, Popover, Menu, Popconfirm, Icon } from 'antd'
+import { Button, Popover, Popconfirm, Icon } from 'antd'
 
 import { Time, IconStatus, AudioMessage, Avatar } from 'components'
 
@@ -12,7 +12,7 @@ const Message = ({ messageData, removeMessage, isMe = false }) => {
     user = {},
     text = '',
     date = '',
-    isChecked = false,
+    readed = false,
     attachment = [],
     isTyping = false,
     audio = '',
@@ -83,7 +83,7 @@ const Message = ({ messageData, removeMessage, isMe = false }) => {
             </Popover>
           )}
           <IconStatus
-            isChecked={isChecked}
+            isChecked={readed}
             className="message__checked"
             show={isMe}
           />

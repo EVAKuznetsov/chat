@@ -8,16 +8,20 @@ function App() {
 
   return (
     <div className="wrapp">
-      {/* {isAuth && <Redirect to="/" />} */}
       <Route
         exact
-        path={['/signin', '/signup', '/verify']}
-        render={() => (!isAuth ? <Auth /> : <Redirect to="/" />)}
+        path="/"
+        render={() =>
+          !isAuth ? <Redirect to="/signIn" /> : <Redirect to="/chat" />
+        }
       />
       <Route
-        // exact
-        path={'/'}
-        render={() => (isAuth ? <Home /> : <Redirect to="/signin" />)}
+        path={['/signin', '/signup', '/verify']}
+        render={() => (!isAuth ? <Auth /> : <Redirect to="/chat" />)}
+      />
+      <Route
+        path={'/chat'}
+        render={() => (isAuth ? <Home /> : <Redirect to="/signIn" />)}
       />
     </div>
   )

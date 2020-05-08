@@ -17,6 +17,10 @@ const Dialogs = ({
   inputValue,
   chooseDialog,
 }) => {
+  const isMe = (userId, dialog) => {
+    if (dialog.lastMessage) return userId === dialog.lastMessage.user._id
+    return false
+  }
   return (
     <>
       <div className="chat__sidebar-search">
@@ -32,7 +36,7 @@ const Dialogs = ({
           {/*сортируем по дате отправки сообщений и отрисовываем список диалогов*/}
           {orderBy(items, 'created_at', 'desc').map(item => (
             <DialogsItem
-              isMe={userId === item.lastMessage.user._id}
+              isMe={isMe(userId, item)}
               partner={userId === item.author._id ? item.partner : item.author}
               dialog={item}
               currentDialogId={currentDialogId}

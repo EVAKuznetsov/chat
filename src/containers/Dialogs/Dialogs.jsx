@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import socket from 'services/socket'
-import { fetchDialogs, setCurentDialog } from 'redux/actions/dialogs'
+import {
+  fetchDialogs,
+  setCurentDialog,
+  updateLastMessageInDialog,
+} from 'redux/actions/dialogs'
 import { Dialogs as BaseDialogs } from 'components'
 
 const Dialogs = props => {
@@ -28,6 +32,13 @@ const Dialogs = props => {
     socket.on('SERVER:DIALOG_CREATED', () => {
       dispatch(fetchDialogs())
     })
+    socket.on('SERVER:LAST_MESSAGE_CREATED', message => {
+      dispatch(updateLastMessageInDialog(message))
+    })
+    return () => {
+      socket.removeListener('SERVER:DIALOG_CREATED')
+      socket.removeListener('SERVER:MESSAGE_CREATED')
+    }
   }, [dispatch])
   useEffect(() => {
     !items.length ? dispatch(fetchDialogs()) : setFiltered(items)
