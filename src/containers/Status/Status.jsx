@@ -21,7 +21,6 @@ const Status = () => {
 
   return (
     <StatusBase
-      dialog={currentDialod}
       partner={
         user._id === currentDialod.author._id
           ? currentDialod.partner

@@ -3,7 +3,13 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Button, Popover, Popconfirm, Icon } from 'antd'
 
-import { Time, IconStatus, AudioMessage, Avatar } from 'components'
+import {
+  Time,
+  IconStatus,
+  AudioMessage,
+  Avatar,
+  TextWidthEmoji,
+} from 'components'
 
 import './Message.sass'
 
@@ -55,7 +61,11 @@ const Message = ({ messageData, removeMessage, isMe = false }) => {
                     <span className="message__typing-item"></span>
                   </>
                 )}
-                {text && <p className="message__text">{text}</p>}
+                {text && (
+                  <p className="message__text">
+                    <TextWidthEmoji text={text} emojiSize={30} />
+                  </p>
+                )}
                 {audio && <AudioMessage audio={audio} />}
               </div>
             )}

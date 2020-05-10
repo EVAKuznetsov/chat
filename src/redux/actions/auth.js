@@ -7,6 +7,7 @@ import {
   SIGN_UP_SUCCESS,
   CURRENT_USER_SUCCESS,
   CURRENT_USER_REQUEST,
+  LOGOUT,
 } from '../../constants/authActions'
 
 export const signInRequest = payload => ({ type: SIGN_IN_REQUEST, payload })
@@ -24,3 +25,5 @@ export const currentUserSuccess = data => ({
 
 export const signUpRequest = payload => ({ type: SIGN_UP_REQUEST, payload })
 export const signUpSuccess = () => ({ type: SIGN_UP_SUCCESS })
+
+export const logout = () => ({ type: LOGOUT })

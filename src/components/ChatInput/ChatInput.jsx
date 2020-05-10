@@ -15,11 +15,13 @@ const ChatInput = ({
   toggleEmoji,
   emojiVisible,
   addEmoji,
+  wrapperRef,
+  emojiButton,
 }) => {
   return (
     <div className="chat-input">
       {emojiVisible && (
-        <div className={'chat-input__emoji-block'}>
+        <div ref={wrapperRef} className={'chat-input__emoji-block'}>
           <Picker set="apple" onClick={e => addEmoji(e.colons)} />
         </div>
       )}
@@ -28,7 +30,21 @@ const ChatInput = ({
         icon="smile"
         onClick={toggleEmoji}
       />
-      <Input
+      {/* <div
+        placeholder="Введите сообщение"
+        size="large"
+        onKeyUp={onSubmit}
+        className="chat-input__input-field"
+        onChange={e => changeValue(e.target.value)}
+        tabIndex="0"
+        contentEditable="true"
+        role="textbox"
+        aria-multiline="true"
+      >
+        {<TextWidthEmoji text={value} emojiSize={18} />}
+      </div> */}
+      <Input.TextArea
+        autoSize={{ maxRows: 3 }}
         placeholder="Введите сообщение"
         size="large"
         onKeyUp={onSubmit}

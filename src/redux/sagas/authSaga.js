@@ -4,6 +4,7 @@ import {
   SIGN_IN_REQUEST,
   SIGN_UP_REQUEST,
   CURRENT_USER_REQUEST,
+  LOGOUT,
 } from '../../constants/authActions'
 import showNotification from 'utils/helpers/showNotification'
 import {
@@ -24,6 +25,9 @@ function* signUpWatcher() {
 }
 function* currentUserWatcher() {
   yield takeEvery(CURRENT_USER_REQUEST, currentUser)
+}
+function* logoutWatcher() {
+  yield takeEvery(LOGOUT, logout)
 }
 
 /*******************
@@ -69,13 +73,6 @@ function* signUp({ payload }) {
       })
       yield put(signInChangeLoading(false))
     } else {
-      // yield put(signInRequest(payload))
-      // showNotification({
-      //   type: 'success',
-      //   title: 'Успех!',
-      //   text: 'Пользователь успешно создан',
-      //   duration: 5,
-      // })
       yield put(signInChangeLoading(false))
       payload.history.push('/verify')
     }
@@ -91,13 +88,20 @@ function* currentUser() {
       yield put(currentUserSuccess(userData.data.user))
     }
   } catch (error) {
-    // console.log('eeeeeeerror', error)
-    window.localStorage.removeItem('token')
-    yield put(signInFailure())
-    window.location.href = '/'
+    yield logout()
   }
+}
+function* logout() {
+  window.localStorage.removeItem('token')
+  yield put(signInFailure())
+  window.location.href = '/'
 }
 
 export default function* authSaga() {
-  yield all([signInWatcher(), signUpWatcher(), currentUserWatcher()])
+  yield all([
+    signInWatcher(),
+    signUpWatcher(),
+    currentUserWatcher(),
+    logoutWatcher(),
+  ])
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { Messages, ChatInput, Status, Sidebar } from 'containers'
-import { ChatHeader } from 'components'
+import { Messages, ChatInput, Status, Sidebar, ChatHeader } from 'containers'
 import './home.sass'
 
 const Home = () => {

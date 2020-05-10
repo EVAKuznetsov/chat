@@ -18,9 +18,11 @@ const Dialogs = props => {
   const [inputValue, setInputValue] = useState('')
   const onChangeInput = value => {
     setFiltered(
-      items.filter(dialog =>
-        dialog.user.fullName.toLowerCase().includes(value.toLowerCase())
-      )
+      items.filter(dialog => {
+        const dialogUser =
+          dialog.partner._id === user._id ? dialog.author : dialog.partner
+        return dialogUser.fullName.toLowerCase().includes(value.toLowerCase())
+      })
     )
     setInputValue(value)
   }

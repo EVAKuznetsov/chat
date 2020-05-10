@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
-import { IconStatus, Avatar } from 'components'
+import { IconStatus, Avatar, TextWidthEmoji } from 'components'
 
 import format from 'date-fns/format'
 import isToday from 'date-fns/isToday'
@@ -54,7 +54,9 @@ const DialogsItem = ({
           </div>
           <div className="dialogs-item__main">
             <span className="dialogs-item__text">
-              {lastMessage && lastMessage.text}
+              {lastMessage && (
+                <TextWidthEmoji text={lastMessage.text} emojiSize={18} />
+              )}
             </span>
             <IconStatus
               isChecked={lastMessage && lastMessage.readed}

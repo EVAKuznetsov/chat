@@ -7,7 +7,7 @@ const Avatar = ({ user }) => {
   if (user.avatar) {
     return <img src={user.avatar} alt={user.fullName} />
   } else {
-    const colors = getColorAvatarBllock(user._id)
+    const colors = getColorAvatarBllock(user._id, user.createdAt)
     const firstNameChar = []
     user.fullName.split(' ').forEach(e => {
       firstNameChar.push(e[0])

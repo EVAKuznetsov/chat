@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchSendMessage } from 'redux/actions/messages'
@@ -9,9 +9,30 @@ const ChatInput = () => {
   const { currentDialogId } = useSelector(state => state.dialogs)
   const [value, setValue] = useState('')
   const [emojiVisible, setEmojiVisible] = useState(false)
+
+  const wrapperRef = useRef(null)
+  const emojiButton = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (
+        wrapperRef.current &&
+        emojiVisible &&
+        !wrapperRef.current.contains(event.target)
+      ) {
+        setEmojiVisible(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [emojiButton, emojiVisible, wrapperRef])
+
   const changeValue = val => {
     setValue(val)
   }
+
   const sendMessage = () => {
     dispatch(fetchSendMessage({ text: value, dialog_id: currentDialogId }))
     setValue('')
@@ -34,6 +55,7 @@ const ChatInput = () => {
       toggleEmoji={toggleEmoji}
       emojiVisible={emojiVisible}
       addEmoji={addEmoji}
+      wrapperRef={wrapperRef}
     />
   ) : (
     <div></div>
